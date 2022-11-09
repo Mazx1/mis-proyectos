@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, #000);
+}
+
+.div {
+    border-left: 6px solid red;
+    height: 420px;
+    position: absolute;
+    left: 50%;
+    margin-left: -4px;
+    top: 60px;
+}
+
+h2 {
+    color: white;
+    font-size: aller;
+    font-size: 45px;
+}
