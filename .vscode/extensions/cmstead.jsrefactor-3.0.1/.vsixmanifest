@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="jsrefactor" Version="3.0.1" Publisher="cmstead"  />
+    <DisplayName>JS Refactor :: JS CodeFormer</DisplayName>
+    <Description xml:space="preserve">Automated refactoring tools to smooth your development workflow</Description>
+    <Tags>refactor,refactoring,javascript,react,vue,typescript,automation,html,javascriptreact,typescriptreact,__web_extension</Tags>
+    <Categories>Programming Languages,Snippets,Formatters,Other</Categories>
+    <GalleryFlags>Public</GalleryFlags>
+    <Badges></Badges>
+    <Properties>
+      <Property Id="Microsoft.VisualStudio.Code.Engine" Value="^0.12.0" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="cmstead.js-codeformer" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="workspace,web" />
+      <Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+      
+        <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/cmstead/js-refactor.git" />
+        <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/cmstead/js-refactor.git" />
+        
+          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/cmstead/js-refactor.git" />
+        
+      
+      
+      
+      <Property Id="Microsoft.VisualStudio.Services.Branding.Color" Value="#ffffee" />
+      
+      <Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+      
+      
+      
+    </Properties>
+    <License>extension/LICENSE.txt</License>
+    <Icon>extension/images/js-refactor-icon.png</Icon>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+  </Installation>
+  <Dependencies/>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+    <Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Content.License" Path="extension/LICENSE.txt" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/images/js-refactor-icon.png" Addressable="true" />
+  </Assets>
+</PackageManifest>

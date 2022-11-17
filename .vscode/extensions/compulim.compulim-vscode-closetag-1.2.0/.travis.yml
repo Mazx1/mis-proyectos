@@ -1,0 +1,42 @@
+sudo: false
+
+os:
+  - osx
+  - linux
+
+language: node_js
+
+node_js:
+  - "10"
+
+env:
+  global:
+    secure: eQRIUinl00EmfO79gUdhfD2TG/O/7cE0yBzZoR7JBlhYfLsCqXGNAWEqIOGiaQfjWZxRwhvswoGL++gLy84UPHqieXAccZSZ1xdOFWaMuQVqaZm7cfLlxmWLHIdO66vE78rXLeZS3AVErxRvtcENVJKkFemtxI1gTte8zMzlY91pApr6XP06YcDFb/6pcFguyeRD8IHJZZie9MBbKVbtkdRuCDPvcS5a41WowJuFWlNqqMkAWUybXJbLrYuIQ+vk1rqE6nL4XALUoAhpbdUf+l0vUQumtY1jIjG/5b1woao8bgHBCTy+QlWq/Z4Y7y3MQjAYPIuNLAwNK76B/+zOPgISQj58OY+eYk0rg11+loqwDLYy5HgZWzbmgc7lHVmyHkZFyle3ULWMsvK6BnDAJc0mI5Ai8nsSGdxlYvlTXwj86pdcxWGGDnp+xM6ISF/3HLUOvQONxavfj+b04nv1llX6qxCNNXnaq1hwSA+hLLMd8SKebvp47xqVZ50DLJEwSaoQv/x/jzlh4PAviJUZtfoIEgYAxIbPvflhMgyOBzs+MfJ4nZuCeFV9U/ZPKBtVfhKsxrgm2aERpYHms0EZzrIc9rq0zsxorE83zrRBnjzjDjNDH8nwvvHRMjBWUryt7MUxluNhnIw262bw57RQ7P7gej+j3Z4Mb4q5SA4nIg==
+
+before_install:
+  - if [ $TRAVIS_OS_NAME == "linux" ]; then
+      export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
+      sh -e /etc/init.d/xvfb start;
+      sleep 3;
+    fi
+
+install:
+  - npm install
+  # - npm run vscode:prepublish
+
+script:
+  - npm test --silent
+
+deploy:
+  - provider: script
+    script: bash scripts/deploy-vsce.sh
+    skip_cleanup: true
+    on:
+      tags: true
+
+  - provider: releases
+    api_key:
+      secure: "Kp5tipJKyrGqBwobfQ0qGSPMS/3B9QkMRgdkUQwUX5S/X6hD9JPj4CpZcaw82MZdH+HfTJw7Ju89/G+9yCeGX923K1JVsI68j1Zq1lfyurlbPg96NAxkTlmPEeAJxhfnAAK4fDnXWFzVpTaHVPT9yEuhpEzTLMSlPntHwZCKEvtBUlw8yL0kxc9gBpOH89GNE88aw2qptz/z0go4AHlwA/cuStKtzlx7qMehczJZGgJHuRrCtQ0CuoHQi+1VjBE21DemvrlR0HRiUi+asiSOGILJQmZtgiMA1A55Kg19Z+TJruIGhWYoEpau9Thjxud6a+krxG8ELZElsWbZI1s/LKzbmsdt5QPk4N5Pa+h1gC3zKLsm2fdadA8SWOyDbEqfoH3KqLwfO4sghiZlgaA0mabMzP0NBm2EoQTQZHlF0gWEgMDQW8TE1o66NTtPQX8abmrnj0zNRd5Z0f6rZ4GM5aH0SPg7/g7/x8JNIC1NhWYrRxijA3RO9l+rSvg7oKSOnHEzEQHNmdJ8wLsSLhxJl5boXCiJEN1Jh/kurk20vvSQMXBdtbg0xoeBdJokpI1r8z4fxunnkQKc7cpPVUf1h4KiS9zbWKTDYbl/qNrIEr0j6G5HpD0WgHTZl8MR3VmWAa30e7YGhxQFSov+yU9KDc2zAdlomCnpR9JETDItOqg="
+    on:
+      tags: true
+    skip_cleanup: true

@@ -1,0 +1,82 @@
+{
+	"name": "git-add-commit-push",
+	"publisher": "alfredbirk",
+	"icon": "images/logo.png",
+	"displayName": "Git add commit push",
+	"description": "Three git commands in one easy shortcut!",
+	"version": "0.13.0",
+	"engines": {
+		"vscode": "^1.16.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"git",
+		"add",
+		"commit",
+		"push",
+		"shortcut",
+		"hotkey",
+		"auto",
+		"macro"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alfredbirk/vscode-extension-git-add-commit-push"
+	},
+	"activationEvents": [
+		"onCommand:extension.gitAddCommitPush",
+		"onCommand:extension.gitAddCommitPushPr"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.gitAddCommitPush",
+				"title": "Git add > commit > push"
+			},
+			{
+				"command": "extension.gitAddCommitPushPr",
+				"title": "Git add > commit > push > create PR"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.gitAddCommitPush",
+				"key": "ctrl+alt+p",
+				"mac": "ctrl+cmd+p"
+			},
+			{
+				"command": "extension.gitAddCommitPushPr",
+				"key": "ctrl+alt+l",
+				"mac": "ctrl+cmd+l"
+			}
+		]
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.2.0",
+		"eslint": "^5.13.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.2.0"
+	},
+	"__metadata": {
+		"id": "e5fc270c-6460-4fb4-b972-a9c9aedb4e5a",
+		"publisherId": "1dd4daee-7dfc-4ea0-838e-2c2158f26797",
+		"publisherDisplayName": "alfredbirk",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1665877696409,
+		"preRelease": false
+	}
+}

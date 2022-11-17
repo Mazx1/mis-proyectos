@@ -1,0 +1,79 @@
+{
+	"name": "html-to-javascript-string",
+	"displayName": "html to javascript string",
+	"description": "Converts html code to javascript string",
+	"version": "0.0.6",
+	"publisher": "evileumas",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/evileumas/html-to-javascript-vscode.git"
+	},
+	"icon": "icon/html-to-javascript-vscode.png",
+	"engines": {
+		"vscode": "^1.21.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"html",
+		"conversor",
+		"javascript",
+		"string",
+		"converter"
+	],
+	"activationEvents": [
+		"onCommand:extension.convertHTMLtoString"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.convertHTMLtoString",
+				"title": "Convert HTML to Javascript String"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorHasSelection",
+					"command": "extension.convertHTMLtoString",
+					"group": "modification"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"when": "editorHasSelection",
+				"command": "extension.convertHTMLtoString",
+				"group": "modification",
+				"key": "ctrl+h ctrl+j"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6",
+		"tslint": "^5.8.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"__metadata": {
+		"id": "91651a60-4a22-43e1-9068-5f376c431652",
+		"publisherId": "f70ac7c9-49b0-4cf8-a8c9-4f5bd3d5bb56",
+		"publisherDisplayName": "Samuel Garcia",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1665707134702,
+		"preRelease": false
+	}
+}

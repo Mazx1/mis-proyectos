@@ -1,0 +1,91 @@
+{
+    "Variable": {
+        "prefix": "var-const-let",
+        "body": [
+            "${1|const,let,var|} ${2:variableName}${3|:, =|} ${TM_SELECTED_TEXT}$0${3:;}"
+        ],
+        "description": "Basic variable"
+    },
+    "Parameter": {
+        "prefix": "parameter-argument",
+        "body": [
+            "${1:name}${2:${3|:, =|} ${TM_SELECTED_TEXT}}"
+        ],
+        "description": "Parameter with optional type or default value"
+    },
+    "Function": {
+        "prefix": "function",
+        "body": [
+            "${1|function,async function,function*|} ${2:functionName }(${3:parameters})${4:: ${5:typeAnnotation}} {",
+            "\t${TM_SELECTED_TEXT}$0",
+            "}"
+        ],
+        "description": "New function"
+    },
+    "Arrow Function": {
+        "prefix": "arrow-function-lambda",
+        "body": [
+            "(${1:parameters}) => ${2:{\n\t${TM_SELECTED_TEXT}$0\n}}"
+        ],
+        "description": "New Arrow Function"
+    },
+    "Promise then": {
+        "prefix": "promise-then",
+        "body": [
+            ".then((${1:result}) => ${2:{\n\t${TM_SELECTED_TEXT}$0\n}})"
+        ],
+        "description": "Promise then function call"
+    },
+    "Promise catch": {
+        "prefix": "promise-catch",
+        "body": [
+            ".catch((${1:error}${2:: ${3:typeAnnotation}}) => ${4:{\n\t${TM_SELECTED_TEXT}$0\n}})${5:;}"
+        ],
+        "description": "Promise catch function call"
+    },
+    "Class": {
+        "prefix": "class",
+        "body": [
+            "class ${1:ClassName} ${2:extends ${3:ParentClass} }{",
+            "\t${4:super()}${5:${TM_SELECTED_TEXT}}$0",
+            "}"
+        ],
+        "description": "Insert new class"
+    },
+    "Constructor": {
+        "scope": "typescript,typescriptreact",
+        "prefix": "ctor-constructor",
+        "body": [
+            "constructor (${1:parameters}) {",
+            "\t${2:${TM_SELECTED_TEXT}}$0",
+            "}"
+        ],
+        "description": "New constructor method"
+    },
+    "Function call": {
+        "scope": "typescript,typescriptreact",
+        "prefix": "function-call",
+        "body": [
+            "${1:await }${2:functionName}(${3:${TM_SELECTED_TEXT}})$0"
+        ],
+        "description": "Function call which supports surround"
+    },
+    "Template Literal": {
+        "scope": "typescript,typescriptreact",
+        "prefix": "template-literal",
+        "body": [
+            "`\\${${1:${TM_SELECTED_TEXT}}}`"
+        ],
+        "description": "Introduce template literal into source"
+    },
+    "Immediately Invoked Function Expression (IIFE)": {
+        "prefix": "iife-immediately-invoked-function-expression",
+        "body": [
+            "(function() {",
+            "\t${TM_SELECTED_TEXT}$0",
+            "})()${1:;}",
+            ""
+        ],
+        "description": "Insert an immediately invoked function expression"
+    },
+}

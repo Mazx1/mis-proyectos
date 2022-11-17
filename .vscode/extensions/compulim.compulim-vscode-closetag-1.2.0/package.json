@@ -1,0 +1,93 @@
+{
+	"name": "compulim-vscode-closetag",
+	"displayName": "Close HTML/XML tag",
+	"description": "Quickly close last opened HTML/XML tag",
+	"version": "1.2.0",
+	"publisher": "Compulim",
+	"engines": {
+		"vscode": "^1.24.0"
+	},
+	"icon": "icon.png",
+	"galleryBanner.color": "#0D5CAB",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/compulim/vscode-closetag.git"
+	},
+	"bugs": "https://github.com/compulim/vscode-closetag/issues/",
+	"homepage": "https://github.com/compulim/vscode-closetag/blob/master/README.md",
+	"keywords": [
+		"close",
+		"tag",
+		"html",
+		"xml"
+	],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:closeTag.closeHTMLTag",
+		"onCommand:closeTag.closeHTMLTagInPlace"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "closeTag.closeHTMLTag",
+				"title": "Close Tag: Close last opened HTML/XML tag"
+			},
+			{
+				"command": "closeTag.closeHTMLTagInPlace",
+				"title": "Close Tag: Close last opened HTML/XML tag in-place"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Close tag configuration",
+			"properties": {
+				"closeTag.ignoreTags": {
+					"type": [
+						"string",
+						"object",
+						"null"
+					],
+					"default": null,
+					"description": "Specifies tags which will be ignored and not closed. Possibilities are:\n - null (ignore nothing)\n - 'html' (ignore HTML void elements specified at https://www.w3.org/TR/html/syntax.html#void-elements)\n - { br: true, img: true } (custom set of tags)"
+				}
+			}
+		},
+		"keybindings": [
+			{
+				"command": "closeTag.closeHTMLTag",
+				"key": "alt+.",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "closeTag.closeHTMLTagInPlace",
+				"key": "alt+shift+.",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6",
+		"eslint": "^4.11.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"__metadata": {
+		"id": "0fd4a2e2-f7b7-430e-8ba0-3b44ddfb43f5",
+		"publisherId": "f9dbfd7c-f9a1-434c-9971-648ad2e23f96",
+		"publisherDisplayName": "Compulim",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1665707041685,
+		"preRelease": false
+	}
+}

@@ -1,0 +1,8 @@
+[user]
+	name = Mazx1
+	email = 111648060+Mazx1@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
