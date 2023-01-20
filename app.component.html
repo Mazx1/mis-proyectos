@@ -1,15 +1,21 @@
-<div class="box" id="heading">    
-    <h1>{{title}}</h1>
-</div>   
+<app-cabecero
+[presupuestoTotal]="getPresupuestoTotal()"
+[ingresoTotal]="getIngresoTotal()"
+[egresoTotal]="getEgresoTotal()"
+[porcentajeTotal]="getPorcentajeTotal()"
+></app-cabecero>
 
-<div class="box">   
-    <app-persona
-    *ngFor="let personaElemento of personas; let i = index"
-    [persona]="personaElemento"
-    [indice]="i"
-    ></app-persona>
+
+
+<app-formulario></app-formulario>
+
+  
+  <div class="contenedor limpiarEstilos">
+    <app-ingreso></app-ingreso>
+      
+      
+      
+    <app-egreso
+    [IngresoTotal]="getIngresoTotal()"
+    ></app-egreso>
 </div>
-
-<div class="box"> 
-     <app-formulario></app-formulario>
-</div>    
